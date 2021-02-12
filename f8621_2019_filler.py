@@ -2,6 +2,7 @@ import pdfrw
 from reportlab.pdfgen import canvas
 import subprocess
 import tkinter
+import tkinter.filedialog
 import os
 import sys
 import pandas as pd
@@ -290,6 +291,7 @@ def create_gui():
 
     def clicked_files():
         file_dict['file'] = tkinter.filedialog.askopenfilename()
+        print("file %s", file_dict['file'] )
 
 
     btn1 = tkinter.Button(window, text="Select File", command=clicked_files)
@@ -307,7 +309,7 @@ def create_gui():
         data_dict['Identifying Number'] = '123-45-6789'
         data_dict['Address'] = '1600 Pennsylvania Avenue'
         data_dict['City, State, Zip'] = 'Washigton DC'
-        data_dict['Tax year'] = '23'
+        data_dict['Tax year'] = '19'
         data_dict['Type of Shareholder'] = u'\u2713'
         data_dict['Name of PFIC'] = 'My_ETF'
         data_dict['PFIC Address'] = 'My_ETF_Address'
@@ -331,7 +333,7 @@ def main():
                FORM_OVERLAY_PATH,
                FORM_OUTPUT_PATH)
 
-    os.system(r"start chrome {}".format(FORM_OUTPUT_PATH))
+    # os.system(r"start chrome {}".format(FORM_OUTPUT_PATH))
 
 
 main()
